@@ -1,0 +1,25 @@
+<view class='chat'>
+  <view class='chat-text'>
+    <scroll-view class="scroll" scroll-y="true" scroll-top="{{scrollTop}}" >  
+      <view class="classname"></view>  
+      <block wx:for="{{lists}}" wx:key="*this">  
+        <view class="item left" data-index="{{index}}" id="item{{index}}" wx:if="{{item.position=='left'}}">
+          <text>{{item.message}}</text>
+        </view>  
+        <view class="item right" data-index="{{index}}" id="item{{index}}" wx:elif="{{item.position == 'right'}}">
+          <text>{{item.message}}</text>
+        </view>
+      </block>
+    </scroll-view>  
+  </view>
+  <view class='flex-wrp chat-operation'>
+    <view class="chat-input">
+       <input class="weui-input" auto-focus placeholder="输入" bindinput ="messageInput"/> 
+    </view>
+    <view class="chat-button">
+      <button type="primary" bindtap="send">发送</button>
+    </view> 
+    
+  </view>
+</view>
+ 
